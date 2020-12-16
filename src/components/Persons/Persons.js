@@ -1,17 +1,17 @@
-import React from 'react';
-import Person from './Person/Person';
+import React from "react";
+import Person from "./Person/Person";
 
-const persons = (props) => 
-    props.persons.map((person, index) => {
-        return (
-          <Person
-            name={person.name}
-            age={person.age}
-            click={() => props.clicked(index)}
-            change={(event) => props.changed(event, person.id)}
-            key={person.id}
-          />
-        );
-      });
+const persons = ({ persons, clicked, changed }) =>
+  persons.map((person, index) => {
+    return (
+      <Person
+        name={person.name}
+        age={person.age}
+        click={() => clicked(index)}
+        change={(event) => changed(event, person.id)}
+        key={person.id}
+      />
+    );
+  });
 
 export default persons;
